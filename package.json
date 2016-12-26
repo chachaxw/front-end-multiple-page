@@ -1,0 +1,23 @@
+{
+  "name": "front-end-multiple-page",
+  "version": "1.0.0",
+  "description": "Front-end multiple page project",
+  "main": "index.js",
+  "repository": "https://github.com/chachaxw/front-end-multiple-page.git",
+  "author": "Wei Zhou <867571123@qq.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "babel": "^6.5.2",
+    "css-loader": "^0.26.1",
+    "eslint": "^3.12.2",
+    "gulp": "^3.9.1",
+    "postcss": "^5.2.8",
+    "sass-loader": "^4.1.1",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.14.0",
+    "webpack-dev-server": "^1.16.2"
+  },
+  "dependencies": {
+    "react": "^15.4.1"
+  }
+}
