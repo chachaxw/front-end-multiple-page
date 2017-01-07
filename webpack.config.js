@@ -21,6 +21,14 @@ module.exports = {
         test: /\.scss$/,
         loader: "style-loader!css-loader!sass-loader",
       },
+      {
+				test: /\.(png|jpe?g|gif)(\?.*)?$/,
+				loader: 'url',
+				query: {
+					limit: 5000,
+					name: 'images/[name].[ext]?[hash:10]'
+				}
+			},
     ],
   },
   resolve: {
@@ -38,5 +46,6 @@ module.exports = {
         warnings: false
       },
     }),
-  ]
+  ],
+  devtool: 'source-map',
 };
