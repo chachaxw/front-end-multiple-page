@@ -8,8 +8,35 @@ module.exports = {
   },
   module: {
     //各种加载器，即让各种文件格式可用require引用
-    loaders: []
+    loaders: [
+			{
+        test: /\.js$/,
+        loader: "babel",
+        exclude: /node_modules/
+      },
+      {
+        test: /\.css$/,
+        loader: "style-loader!css-loader",
+      }, {
+        test: /\.scss$/,
+        loader: "style-loader!css-loader!sass-loader",
+      },
+    ],
   },
-  resolve: {},
-  plugins: []
+  resolve: {
+    //配置别名，在项目中可缩减引用路径
+    alias: {
+      lib: "../../js/lib",
+    },
+  },
+  plugins: [
+    //将公共代码抽离出来合并为一个文件
+    new CommonsChunkPlugin('common.js'),
+    // js文件压缩
+    new uglifyJsPlugin({
+      compress: {
+        warnings: false
+      },
+    }),
+  ]
 };
