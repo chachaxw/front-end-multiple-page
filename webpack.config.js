@@ -10,7 +10,7 @@ module.exports = {
     //各种加载器，即让各种文件格式可用require引用
     loaders: [
 			{
-        test: /\.js$/,
+        test: /\.js|.jsx$/,
         loader: "babel",
         exclude: /node_modules/
       },
