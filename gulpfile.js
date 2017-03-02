@@ -3,7 +3,7 @@ const $ = require('gulp-load-plugins')({
   pattern: ['*'],
   scope: ['devDependencies']
 });
-console.log($);
+// console.log($);
 
 // package vars
 const pkg = require('./package.json');
@@ -11,7 +11,7 @@ const pkg = require('./package.json');
 // scss - build the scss to the build folder,
 // including the required paths, and writing out a sourcemap
 gulp.task('scss', () => {
-  $.fancyLog("-> Compiling scss:" + pkg.paths.build.css + pkg.vars.scssName);
+  $.fancyLog("-> Compiling scss: " + pkg.paths.build.css + pkg.vars.scssName);
   return gulp.src(pkg.paths.src.scss + pkg.vars.scssName)
     .pipe($.plumber())
     .pipe($.sourcemaps.init())
