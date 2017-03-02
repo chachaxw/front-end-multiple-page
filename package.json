@@ -2,34 +2,52 @@
   "name": "front-end-multiple-page",
   "version": "1.0.0",
   "description": "Front-end multiple page project",
-  "main": "index.js",
+  "main": "gulpfile.js",
   "repository": "https://github.com/chachaxw/front-end-multiple-page.git",
   "author": "Wei Zhou <867571123@qq.com>",
   "license": "MIT",
+  "paths": {
+    "src": {
+      "scss": "./src/sass/"
+    },
+    "build": {
+      "css": "./build/css/"
+    },
+    "scss": []
+  },
+  "vars": {
+    "scssName": "style.scss"
+  },
   "devDependencies": {
     "babel": "^6.23.0",
     "browser-sync": "^2.18.8",
     "critical": "^0.8.4",
     "css-loader": "^0.26.2",
     "eslint": "^3.16.1",
+    "fancy-log": "^1.3.0",
     "file-loader": "^0.10.1",
     "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-cached": "^1.1.1",
     "gulp-clean": "^0.3.2",
     "gulp-css-base64": "^1.3.4",
     "gulp-css-spriter": "^0.4.0",
+    "gulp-load-plugins": "^1.5.0",
     "gulp-open": "^2.0.0",
-    "gulp-postcss": "^6.3.0",
+    "gulp-plumber": "^1.1.0",
     "gulp-sass": "^3.1.0",
+    "gulp-size": "^2.1.0",
+    "gulp-sourcemaps": "^2.4.1",
     "gulp-uglify": "^2.0.1",
     "gulp-util": "^3.0.8",
     "gulp-watch": "^4.3.11",
-    "postcss": "^5.2.15",
+    "node-sass": "^4.5.0",
     "sass-loader": "^6.0.2",
     "style-loader": "^0.13.2",
     "webpack": "^2.2.1",
     "webpack-dev-server": "^2.4.1"
   },
   "dependencies": {
-    "react": "^15.4.1"
+    "vue": "^2.2.1"
   }
 }
