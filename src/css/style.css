@@ -1,0 +1,30 @@
+body, html {
+  height: 100%;
+  overflow: hidden;
+  font-family: sans-serif;
+  background-color: #fafafa; }
+
+.outer {
+  position: relative;
+  width: 50%;
+  margin: 150px auto;
+  text-align: center;
+  border: 8px solid #FD6585; }
+  .outer:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: 100%; }
+  .outer > .inner {
+    position: absolute;
+    top: -20px;
+    right: 5px;
+    bottom: 5px;
+    left: -20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    border: 8px solid #3DA3E8; }
