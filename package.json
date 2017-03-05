@@ -15,17 +15,22 @@
       "img": "./src/img/"
     },
     "dist": {
-       "base": "./public/",
-       "css": "./public/css/",
-       "js": "./public/js/",
-       "img": "./public/img/"
-     },
+      "base": "./public/",
+      "css": "./public/css/",
+      "js": "./public/js/",
+      "img": "./public/img/"
+    },
     "build": {
       "base": "./build/",
       "css": "./build/css/",
       "js": "./build/js/",
       "views": "./build/views/",
       "img": "./build/img/"
+    },
+    "favicon": {
+      "src": "./src/img/favicon_src.png",
+      "dest": "./public/img/site/",
+      "path": "/img/site/"
     },
     "scss": []
   },

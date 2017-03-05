@@ -1,10 +1,16 @@
 body, html {
   height: 100%;
+  overflow: hidden;
+  font-family: sans-serif;
   background-color: #fafafa;
 }
 
 .outer {
   position: relative;
+  width: 50%;
+  margin: 150px auto;
+  text-align: center;
+  border: 8px solid #FD6585;
   &:before {
     display: block;
     content: "";
@@ -13,9 +19,12 @@ body, html {
   }
   > .inner {
     position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    top: -20px;
+    right: 5px;
+    bottom: 5px;
+    left: -20px;
+    display: flex;
+    align-items: center;
+    border: 8px solid #3DA3E8;
   }
 }
