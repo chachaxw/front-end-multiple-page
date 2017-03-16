@@ -4,15 +4,23 @@ body, html {
   font-size: 16px;
   color: #666;
   font-family: sans-serif;
-  background-color: #fafafa;
+  background-color: #a3d0ff;
+}
+
+h2 {
+  padding: 20px;
 }
 
 .outer {
   position: relative;
+  top: 50%;
   width: 50%;
-  margin: 150px auto;
+  max-width: 500px;
+  margin: 0 auto;
   text-align: center;
   border: 8px solid #FD6585;
+  transition: all .3s ease-in-out;
+  transform: translateY(-50%);
   &:before {
     display: block;
     content: "";

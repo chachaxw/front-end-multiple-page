@@ -12,20 +12,22 @@
       "sass": "./src/sass/",
       "css": "./src/css/",
       "js": "./src/js/",
-      "img": "./src/img/"
+      "img": "./src/img/",
+      "views": "./src/views/"
     },
     "dist": {
       "base": "./public/",
       "css": "./public/css/",
       "js": "./public/js/",
-      "img": "./public/img/"
+      "img": "./public/img/",
+      "views": "./src/views/"
     },
     "build": {
       "base": "./build/",
       "css": "./build/css/",
       "js": "./build/js/",
-      "views": "./build/views/",
-      "img": "./build/img/"
+      "img": "./build/img/",
+      "views": "./build/views/"
     },
     "favicon": {
       "src": "./src/img/favicon_src.png",
@@ -47,6 +49,9 @@
     ],
     "sass": [
       "./src/sass/**/*.scss"
+    ],
+    "views": [
+      "./src/views/**/*.html"
     ]
   },
   "devDependencies": {
@@ -89,6 +94,7 @@
     "gulp-uglify": "^2.1.0",
     "gulp-watch": "^4.3.11",
     "html-webpack-plugin": "^2.28.0",
+    "run-sequence": "^1.2.2",
     "webpack": "^2.2.1",
     "webpack-dev-server": "^2.4.1"
   },

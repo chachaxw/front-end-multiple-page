@@ -1,15 +1,26 @@
 body, html {
   height: 100%;
   overflow: hidden;
+  font-size: 16px;
+  color: #666;
   font-family: sans-serif;
-  background-color: #fafafa; }
+  background-color: #a3d0ff; }
+
+h2 {
+  padding: 20px; }
 
 .outer {
   position: relative;
+  top: 50%;
   width: 50%;
-  margin: 150px auto;
+  max-width: 500px;
+  margin: 0 auto;
   text-align: center;
-  border: 8px solid #FD6585; }
+  border: 8px solid #FD6585;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%); }
   .outer:before {
     display: block;
     content: "";
@@ -28,3 +39,5 @@ body, html {
         -ms-flex-align: center;
             align-items: center;
     border: 8px solid #3DA3E8; }
+
+/*# sourceMappingURL=style.css.map */
