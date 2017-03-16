@@ -9,7 +9,7 @@
   "paths": {
     "src": {
       "base": "./src/",
-      "scss": "./src/sass/",
+      "sass": "./src/sass/",
       "css": "./src/css/",
       "js": "./src/js/",
       "img": "./src/img/"
@@ -44,6 +44,9 @@
     ],
     "components": [
       "./src/components/**/*.vue"
+    ],
+    "sass": [
+      "./src/sass/**/*.scss"
     ]
   },
   "devDependencies": {
