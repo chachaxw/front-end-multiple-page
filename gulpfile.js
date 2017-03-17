@@ -9,8 +9,7 @@ const watch = $.watch;
 // package vars
 const pkg = require('./package.json');
 
-// sass - build the scss to the build folder,
-// including the required paths, and writing out a sourcemap
+// Gulp tasks
 gulp.task('sass', () => {
   $.fancyLog("-> Compiling scss: " + pkg.paths.src.sass + pkg.vars.scssName);
   return gulp.src(pkg.paths.src.sass + pkg.vars.scssName)
@@ -32,11 +31,10 @@ gulp.task('html', () => {
     .pipe(gulp.dest(pkg.paths.build.views));
 });
 
-gulp.task('reload', () => {
+gulp.task('start', () => {
   $.runSequence('sass', 'html', () => {
     browserSync.init({
       server: {
-        startPath: 'views/index.html',
         baseDir: pkg.paths.src.base,
       }
     })
