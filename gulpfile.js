@@ -21,9 +21,7 @@ gulp.task('sass', () => {
     .pipe($.cached('sass_compile'))
     .pipe($.autoprefixer())
     .pipe($.sourcemaps.write('./'))
-    .pipe($.size({ gzip: true, showFiles: true }))
-    .pipe(gulp.dest(pkg.paths.src.css))
-    .pipe(gulp.dest(pkg.paths.build.css));
+    .pipe(gulp.dest(pkg.paths.src.css));
 });
 
 gulp.task('html', () => {
@@ -34,9 +32,7 @@ gulp.task('html', () => {
 gulp.task('start', () => {
   $.runSequence('sass', 'html', () => {
     browserSync.init({
-      server: {
-        baseDir: pkg.paths.src.base,
-      }
+      server: { baseDir: pkg.paths.src.base }
     })
   });
 });
