@@ -10,6 +10,10 @@ module.exports = {
     modules: [
       resolve('src'),
       resolve('node_modules')
+    ],
+    alias: [
+      'src': resolve('src'),
+      'components': resolve('components')
     ]
   },
   module: {
@@ -18,20 +22,27 @@ module.exports = {
         test: /\.(js|vue)$/,
         loader: 'eslint-loader',
         enforce: "pre",
-        include: [resolve('src'), resolve('test')],
+        include: [resolve('src')],
         options: {
           formatter: require('eslint-friendly-formatter')
         }
       },
       {
         test: /\.vue$/,
-        loader: 'vue-loader',
-        options: vueLoaderConfig
+        loader: 'vue-loader'
       },
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        include: [resolve('src'), resolve('test')]
+        include: [resolve('src')]
+      },
+      {
+        test: /\.scss$/,
+        use: [ "style-loader", "css-loader", "sass-loader"]
+      },
+      {
+        test: /\.css$/,
+        use: [ "style-loader", "css-loader"]
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
@@ -50,5 +61,7 @@ module.exports = {
         }
       }
     ]
-  }
+  },
+  devtool: '#cheap-module-eval-source-map',
+  plugins: []
 };

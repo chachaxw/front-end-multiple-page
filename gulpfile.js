@@ -10,6 +10,8 @@ const watch = $.watch;
 const pkg = require('./package.json');
 
 // Gulp tasks
+gulp.task('clean', (cb) => $.del(['build/**/*'], cb));
+
 gulp.task('sass', () => {
   $.fancyLog("-> Compiling scss: " + pkg.paths.src.sass + pkg.vars.scssName);
   return gulp.src(pkg.paths.src.sass + pkg.vars.scssName)
@@ -26,6 +28,7 @@ gulp.task('sass', () => {
 
 gulp.task('html', () => {
   return gulp.src(pkg.paths.src.views)
+    .pipe($.replace())
     .pipe(gulp.dest(pkg.paths.build.views));
 });
 
@@ -33,7 +36,7 @@ gulp.task('start', () => {
   $.runSequence('sass', 'html', () => {
     browserSync.init({
       server: { baseDir: pkg.paths.src.base }
-    })
+    });
   });
 });
 
