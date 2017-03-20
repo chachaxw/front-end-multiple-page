@@ -6,6 +6,9 @@
   "repository": "https://github.com/chachaxw/front-end-multiple-page.git",
   "author": "Wei Zhou <867571123@qq.com>",
   "license": "MIT",
+  "scripts": {
+    "server": "node server/server.js"
+  },
   "paths": {
     "src": {
       "base": "./src/",
@@ -99,6 +102,9 @@
     "webpack-dev-server": "^2.4.1"
   },
   "dependencies": {
+    "body-parser": "^1.17.1",
+    "cors": "^2.8.1",
+    "express": "^4.15.2",
     "vue": "^2.2.2"
   }
 }
