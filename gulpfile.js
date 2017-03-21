@@ -1,4 +1,5 @@
 const gulp = require('gulp');
+const webpackConfig = require('./webpack.config');
 const $ = require('gulp-load-plugins')({
   pattern: ['*'],
   scope: ['devDependencies']
@@ -13,8 +14,8 @@ const pkg = require('./package.json');
 gulp.task('clean', (cb) => $.del(['build/**/*'], cb));
 
 gulp.task('sass', () => {
-  $.fancyLog("-> Compiling scss: " + pkg.paths.src.sass + pkg.vars.scssName);
-  return gulp.src(pkg.paths.src.sass + pkg.vars.scssName)
+  $.fancyLog("-> Compiling sass: " + pkg.paths.src.sass);
+  return gulp.src(pkg.globs.sass)
     .pipe($.changed(pkg.paths.build.css))
     .pipe($.plumber({ errorHandler: onError }))
     .pipe($.sourcemaps.init())
@@ -26,9 +27,16 @@ gulp.task('sass', () => {
     .pipe(gulp.dest(pkg.paths.src.css));
 });
 
+gulp.task('js', () => {
+  $.fancyLog("-> Compiling js: " + pkg.paths.src.js);
+  return gulp.src(pkg.globs.js)
+    .pipe($.changed(pkg.paths.build.js))
+    .pipe($.webpackStream(webpackConfig))
+    .pipe(gulp.dest(pkg.paths.build.js));
+});
+
 gulp.task('html', () => {
-  return gulp.src(pkg.paths.src.views)
-    .pipe($.replace())
+  return gulp.src(pkg.globs.views)
     .pipe(gulp.dest(pkg.paths.build.views));
 });
 

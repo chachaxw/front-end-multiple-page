@@ -41,17 +41,20 @@
   },
   "vars": {
     "scssName": "style.scss",
-    "cssName": "style.css"
+    "cssName": "**/*.css"
   },
   "globs": {
     "img": [
       "./public/img/"
     ],
     "components": [
-      "./src/components/**/*.vue"
+      "./src/components/**/*.{vue,jsx}"
     ],
     "sass": [
       "./src/sass/**/*.scss"
+    ],
+    "js": [
+      "./src/js/*.js"
     ],
     "distJs": [
       "./build/js/*.js",
@@ -115,7 +118,8 @@
     "run-sequence": "^1.2.2",
     "style-loader": "^0.14.1",
     "webpack": "^2.2.1",
-    "webpack-dev-server": "^2.4.1"
+    "webpack-dev-server": "^2.4.1",
+    "webpack-stream": "^3.2.0"
   },
   "dependencies": {
     "vue": "^2.2.2"

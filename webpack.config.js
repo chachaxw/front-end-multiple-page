@@ -1,20 +1,25 @@
-var path = require('path')
+const path = require('path');
 
 function resolve(dir) {
-  return path.join(__dirname, '..', dir);
+  return path.join(__dirname, '..', dir)
 }
 
 module.exports = {
+  output: {
+		filename: 'js/[name].js',
+		chunkFilename: 'js/[id].js?[hash]',
+		sourceMapFilename: 'js/[name].js.map',
+	},
   resolve: {
-    extensions: ['.js', '.vue', '.json']
+    extensions: ['.js', '.vue', '.json'],
     modules: [
       resolve('src'),
       resolve('node_modules')
     ],
-    alias: [
+    alias: {
       'src': resolve('src'),
       'components': resolve('components')
-    ]
+    }
   },
   module: {
     rules: [
@@ -49,15 +54,7 @@ module.exports = {
         loader: 'url-loader',
         query: {
           limit: 10000,
-          name: utils.assetsPath('img/[name].[hash:7].[ext]')
-        }
-      },
-      {
-        test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
-        loader: 'url-loader',
-        query: {
-          limit: 10000,
-          name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
+          name: 'img/[name].[hash:7].[ext]'
         }
       }
     ]
