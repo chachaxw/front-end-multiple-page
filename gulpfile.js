@@ -29,9 +29,11 @@ gulp.task('sass', () => {
 
 gulp.task('js', () => {
   $.fancyLog("-> Compiling js: " + pkg.paths.src.js);
-  return gulp.src(pkg.globs.js[0])
-    .pipe($.changed(pkg.globs.js[0]))
+  return gulp.src(pkg.globs.js)
+    .pipe($.changed(pkg.paths.build.js))
+    .pipe($.plumber({ errorHandler: onError }))
     .pipe($.webpackStream(webpackConfig))
+    .pipe($.browserSync.reload({ stream: true }))
     .pipe(gulp.dest(pkg.paths.build.js));
 });
 
@@ -41,7 +43,7 @@ gulp.task('html', () => {
 });
 
 gulp.task('start', () => {
-  $.runSequence('sass', 'html', () => {
+  $.runSequence('sass', 'js', 'html', () => {
     browserSync.init({
       server: { baseDir: pkg.paths.src.base }
     });

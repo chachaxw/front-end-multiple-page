@@ -11,7 +11,7 @@ module.exports = {
 		sourceMapFilename: 'js/[name].js.map',
 	},
   resolve: {
-    extensions: ['.js', '.vue', '.json'],
+    // extensions: ['.js', '.vue', '.json'],
     modules: [
       resolve('src'),
       resolve('node_modules')
