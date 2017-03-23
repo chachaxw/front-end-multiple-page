@@ -54,7 +54,7 @@
       "./src/sass/**/*.scss"
     ],
     "js": [
-      "./src/js/*.js"
+      "./src/js/**/*.js"
     ],
     "distJs": [
       "./build/js/*.js",

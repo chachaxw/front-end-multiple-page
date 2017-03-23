@@ -29,8 +29,8 @@ gulp.task('sass', () => {
 
 gulp.task('js', () => {
   $.fancyLog("-> Compiling js: " + pkg.paths.src.js);
-  return gulp.src(pkg.globs.js)
-    .pipe($.changed(pkg.paths.build.js))
+  return gulp.src(pkg.globs.js[0])
+    .pipe($.changed(pkg.globs.js[0]))
     .pipe($.webpackStream(webpackConfig))
     .pipe(gulp.dest(pkg.paths.build.js));
 });
@@ -54,6 +54,9 @@ watch(pkg.globs.sass).on('change', (event) => {
 });
 watch(pkg.globs.views).on('change', () => {
   $.runSequence('html', () => browserSync.reload());
+});
+watch(pkg.globs.js).on('change', () => {
+  $.runSequence('js', () => browserSync.reload());
 });
 
 // Error handler
