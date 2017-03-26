@@ -40,9 +40,19 @@ h2 {
     right: 0;
     bottom: 0;
     left: 0;
-    display: flex;
-    align-items: center;
     border: 8px solid #3DA3E8;
     transition: all .2s ease;
+  }
+  h2 {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    margin: 0;
+    transform: translateY(-50%);
+  }
+  p {
+    position: absolute;
+    width: 100%;
+    bottom: 10px;
   }
 }
