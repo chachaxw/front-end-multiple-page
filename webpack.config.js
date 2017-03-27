@@ -1,7 +1,7 @@
 const path = require('path');
 
 function resolve(dir) {
-  return path.join(__dirname, '..', dir)
+  return path.join(__dirname, './', dir)
 }
 
 module.exports = {
@@ -40,7 +40,11 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        include: [resolve('src')]
+        include: [resolve('src')],
+        options: {
+          presets: ["es2015", "stage-2"],
+          plugins: ['transform-runtime']
+        }
       },
       {
         test: /\.scss$/,

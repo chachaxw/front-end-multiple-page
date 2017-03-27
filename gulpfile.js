@@ -31,7 +31,7 @@ gulp.task('img', () => {
 });
 
 gulp.task('js', () => {
-  copyFile(pkg.globs.distJs, pkg.paths.build.js+'lib/');
+  // copyFile(pkg.globs.distJs, pkg.paths.src.js+'lib/');
   $.fancyLog("-> Compiling js: " + pkg.paths.src.js);
   compileJS(pkg.globs.js);
 });
