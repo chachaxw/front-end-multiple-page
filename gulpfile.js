@@ -77,7 +77,7 @@ watch(pkg.globs.components, (event) => {
 	} else {
 		path = pkg.paths.src.js + business[0] + '/' + jsFile + '.js';
 	}
-  console.log('path:', path,'business:', business);
+  // console.log('path:', path,'business:', business);
   compileJS(path);
 });
 
@@ -87,7 +87,7 @@ function compileJS(path, dest) {
   return gulp.src(path)
     .pipe($.plumber({ errorHandler: onError }))
     .pipe($.vinylNamed((file) => renamedFile(file)))
-    .pipe($.webpackStream(webpackConfig))
+    .pipe($.webpackStream(webpackConfig, $.webpack))
     .pipe($.cached('js_compile'))
     .pipe($.browserSync.reload({ stream: true }))
     .pipe(gulp.dest(dest));

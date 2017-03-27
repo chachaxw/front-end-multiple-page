@@ -7,7 +7,7 @@
   "author": "Wei Zhou <867571123@qq.com>",
   "license": "MIT",
   "scripts": {
-    "start": "supervisor node server/server.js"
+    "server": "supervisor node server/server.js"
   },
   "paths": {
     "src": {
@@ -115,7 +115,9 @@
     "run-sequence": "^1.2.2",
     "style-loader": "^0.16.0",
     "vinyl-named": "^1.1.0",
+    "vue-html-loader": "^1.2.4",
     "vue-loader": "^11.3.3",
+    "vue-style-loader": "^2.0.4",
     "vue-template-compiler": "^2.2.6",
     "vue-template-es2015-compiler": "^1.5.1",
     "webpack": "^2.3.2",

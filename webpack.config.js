@@ -11,15 +11,13 @@ module.exports = {
 		sourceMapFilename: 'js/[name].js.map',
 	},
   resolve: {
+    extensions: ['.js', '.vue', '.json'],
     modules: [
-      resolve('src'),
-      resolve('node_modules')
+      path.resolve(__dirname, './src'),
+      path.resolve(__dirname, 'node_modules')
     ],
     alias: {
-      'src': resolve('src'),
-      'sass': resolve('src/sass'),
-      'img': resolve('src/img'),
-      'components': resolve('src/components')
+      'components': path.resolve(__dirname, './src/components/')
     }
   },
   module: {
@@ -40,7 +38,7 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        include: [resolve('src')],
+        exclude: /node_modules/,
         options: {
           presets: ["es2015", "stage-2"],
           plugins: ['transform-runtime']
