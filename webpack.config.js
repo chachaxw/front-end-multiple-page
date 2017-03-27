@@ -17,7 +17,9 @@ module.exports = {
     ],
     alias: {
       'src': resolve('src'),
-      'components': resolve('components')
+      'sass': resolve('src/sass'),
+      'img': resolve('src/img'),
+      'components': resolve('src/components')
     }
   },
   module: {

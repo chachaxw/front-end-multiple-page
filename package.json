@@ -33,13 +33,13 @@
       "views": "./build/views/"
     },
     "favicon": {
-      "src": "./src/img/favicon_src.png"
+      "src": "./src/img/favicon.ico"
     },
     "scss": []
   },
   "globs": {
     "img": [
-      "./src/img/"
+      "./src/img/**/*.{png,jpeg,gif,svg}"
     ],
     "components": [
       "./src/components/**/*.{vue,jsx}"

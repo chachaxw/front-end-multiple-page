@@ -88,6 +88,7 @@ function compileJS(path, dest) {
     .pipe($.plumber({ errorHandler: onError }))
     .pipe($.vinylNamed((file) => renamedFile(file)))
     .pipe($.webpackStream(webpackConfig))
+    .pipe($.cached('js_compile'))
     .pipe($.browserSync.reload({ stream: true }))
     .pipe(gulp.dest(dest));
 }
@@ -107,5 +108,5 @@ function copyFile(from, to) {
 
 // Error handler
 function onError() {
-  console.log('Error happened');
+  $.fancyLog("Error happened");
 }
