@@ -7,7 +7,8 @@ module.exports = {
   extends: 'airbnb-base',
   // required to lint *.vue files
   "globals" : {
-		"Vue" : true
+		"Vue" : true,
+    "axios": true
 	},
   plugins: [
     'html'

@@ -1,4 +1,4 @@
-// import indexAuthor from 'components/index/index-autor.vue';
+import indexAuthor from 'components/index/index-autor.vue';
 
 const vm = new Vue({
   el: '.outer',

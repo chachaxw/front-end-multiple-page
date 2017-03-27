@@ -8,16 +8,16 @@ module.exports = {
   output: {
 		filename: 'js/[name].js',
 		chunkFilename: 'js/[id].js?[hash]',
-		sourceMapFilename: 'js/[name].js.map',
+		sourceMapFilename: 'js/[name].js.map'
 	},
   resolve: {
-    extensions: ['.js', '.vue', '.json'],
+    extensions: ['.js', '.vue', '.json', '.scss', '.css'],
     modules: [
       path.resolve(__dirname, './src'),
-      path.resolve(__dirname, 'node_modules')
+      "node_modules"
     ],
     alias: {
-      'components': path.resolve(__dirname, './src/components/')
+      'components': resolve('./src/components')
     }
   },
   module: {
