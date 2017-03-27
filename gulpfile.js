@@ -22,8 +22,7 @@ gulp.task('sass', () => {
     .pipe($.cached('sass_compile'))
     .pipe($.autoprefixer())
     .pipe($.sourcemaps.write('./'))
-    .pipe(gulp.dest(pkg.paths.src.css))
-    .pipe(gulp.dest(pkg.paths.build.css));
+    .pipe(gulp.dest(pkg.paths.src.css));
 });
 
 gulp.task('img', () => {
@@ -34,13 +33,7 @@ gulp.task('img', () => {
 gulp.task('js', () => {
   copyFile(pkg.globs.distJs, pkg.paths.build.js+'lib/');
   $.fancyLog("-> Compiling js: " + pkg.paths.src.js);
-  return gulp.src(pkg.globs.js)
-    .pipe($.changed(pkg.paths.build.js))
-    .pipe($.plumber({ errorHandler: onError }))
-    .pipe($.vinylNamed((file) => renamedFile(file)))
-    .pipe($.webpackStream(webpackConfig))
-    .pipe($.browserSync.reload({ stream: true }))
-    .pipe(gulp.dest(pkg.paths.build.base));
+  compileJS(pkg.globs.js);
 });
 
 gulp.task('html', () => {
@@ -85,14 +78,19 @@ watch(pkg.globs.components, (event) => {
 		path = pkg.paths.src.js + business[0] + '/' + jsFile + '.js';
 	}
   console.log('path:', path,'business:', business);
+  compileJS(path);
+});
 
+// Compile JS
+function compileJS(path, dest) {
+  dest = dest || pkg.paths.build.base;
   return gulp.src(path)
     .pipe($.plumber({ errorHandler: onError }))
-    .pipe($.vinylNamed(renamedFile(file)))
+    .pipe($.vinylNamed((file) => renamedFile(file)))
     .pipe($.webpackStream(webpackConfig))
     .pipe($.browserSync.reload({ stream: true }))
-    .pipe(gulp.dest(pkg.paths.dist.base));
-});
+    .pipe(gulp.dest(dest));
+}
 
 // Rename files
 function renamedFile(file) {
@@ -102,6 +100,7 @@ function renamedFile(file) {
   return target.substring(0, target.length - 3);
 }
 
+// Copy files
 function copyFile(from, to) {
   gulp.src(from).pipe(gulp.dest(to));
 }

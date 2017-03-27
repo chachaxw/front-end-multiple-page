@@ -19,11 +19,11 @@
       "views": "./src/views/"
     },
     "dist": {
-      "base": "./public/",
-      "css": "./public/css/",
-      "js": "./public/js/",
-      "img": "./public/img/",
-      "views": "./public/views/"
+      "base": "./dist/",
+      "css": "./dist/css/",
+      "js": "./dist/js/",
+      "img": "./dist/img/",
+      "views": "./dist/views/"
     },
     "build": {
       "base": "./build/",
@@ -52,13 +52,15 @@
       "!./src/js/lib/*.js"
     ],
     "distJs": [
-      "./node_modules/vue/dist/vue.min.js"
+      "./node_modules/vue/dist/vue.min.js",
+      "./node_modules/axios/dist/axios.min.js"
     ],
     "views": [
       "./src/views/**/*.html"
     ]
   },
   "devDependencies": {
+    "babel-core": "^6.24.0",
     "babel-eslint": "^7.2.0",
     "babel-loader": "^6.4.1",
     "babel-plugin-transform-runtime": "^6.23.0",
@@ -119,6 +121,7 @@
     "webpack-stream": "^3.2.0"
   },
   "dependencies": {
+    "axios": "^0.15.3",
     "vue": "^2.2.2"
   }
 }
